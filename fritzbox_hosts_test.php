@@ -2,7 +2,8 @@
 
 $fritzbox_ip = "192.168.178.1";
 $tr64_port = "49000";
-$host1 = '7E:4B:AD:48:56:90';
+$host1 = '7E:4B:AD:48:56:90'; //C
+$host2 = '7E:4B:AD:48:56:90'; //D
 
 // SOAP Abfrage:
 $client = new SoapClient(null, array('location' => "http://" . $fritzbox_ip . ":" . $tr64_port . "/upnp/control/hosts",
@@ -17,7 +18,18 @@ if (!(is_soap_fault($NumberOfHosts))) {
     for ($i = 0; $i < $NumberOfHosts; $i++) {
         $host = $client->GetGenericHostEntry(new SoapParam($i, 'NewIndex'));
         if ($host['NewMACAddress'] == $host1) {
-            print $host['NewActive'];
+            if ($host['NewActive'] == 1) {
+                print 'C1';
+            } else {
+                print 'C0';
+            }
+        }
+        if ($host['NewMACAddress'] == $host2) {
+            if ($host['NewActive'] == 1) {
+                print 'D1';
+            } else {
+                print 'D0';
+            }
         }
     }
 } else {
