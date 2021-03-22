@@ -1,8 +1,8 @@
 const apiUrl = "http://pi.hole/widget/fritzbox_hosts_test.php"
 let text = await textFromSoap()
+let widget = await createWidget(text)
 
 if (!config.runsInWidget) {
-	let widget = createWidget(text)
 	widget.presentSmall();
 }
 Script.setWidget(widget)
