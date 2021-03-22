@@ -3,7 +3,7 @@
 $fritzbox_ip = "192.168.178.1";
 $tr64_port = "49000";
 $host1 = '7E:4B:AD:48:56:90'; //C
-$host2 = '7E:4B:AD:48:56:90'; //D
+$host2 = '54:E4:3A:DC:17:AB'; //D
 
 // SOAP Abfrage:
 $client = new SoapClient(null, array('location' => "http://" . $fritzbox_ip . ":" . $tr64_port . "/upnp/control/hosts",
