@@ -10,7 +10,14 @@ Script.complete()
 
 function createWidget(text) {
 	let w = new ListWidget()
-  	w.backgroundColor = new Color("#4a6da7")
+    let gradient = new LinearGradient();
+    gradient.locations = [0, 1]
+    gradient.colors = [
+      new Color("#141E30"),
+      new Color("28416F")
+    ]
+    w.backgroundGradient = gradient
+  	//w.backgroundColor = new Color("#4a6da7")
 
 
   	let article = w.addText(text)
